@@ -2,6 +2,7 @@ body {
     margin: 0;
     width: 100vw;
     height: 100vh;
+    background-color: #22314E;
 }
 #root {
     width: 100%;
@@ -25,8 +26,13 @@ body {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                .h1 {
+                flex-direction: column;
+                h1 {
                   text-align: center;
+                  color: #a6a9af;
+                  text-transform: capitalize;
+                  padding: 50px;
+                  font-size: 80px;
                 }
             }
         }
