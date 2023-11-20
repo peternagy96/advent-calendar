@@ -2,7 +2,7 @@ $colorBody: darken(#83AF9B, 45%);
 $colorBow: #83AF9B;
 $colorPresent: #FE4365;
 $colorRibbon: #F9CDAD;
-$sizeRibbon: 10%;
+$sizeRibbon: 2vw;
 
 $colorSantaFace: #E1B899;
 $colorSantaEye: #111111;
@@ -73,7 +73,7 @@ $colorSantaHat: darken($colorPresent, 10%);
   .present__ribbon__horizontal {
     right: 0;
     left: 0;
-    bottom: 30%;
+    bottom: 50%;
     width: 100%;
     height: $sizeRibbon;
     background-image: linear-gradient(80deg, transparent, rgba(white, 0.3) 60%, transparent);

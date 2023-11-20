@@ -7,7 +7,7 @@ const App = () => {
       <div className="app">
         <div className="container">
             <div className="headline-container">
-                <h1 className="title">Advent Calendar</h1>
+                <span className="title">Advent Calendar</span>
             </div>
             <AdventCalendar />
         </div>

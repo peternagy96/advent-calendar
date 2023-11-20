@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Present.module.scss';
-console.log(styles)
+
 const Present = () => {
   return (
     <div className={styles.present}>
