@@ -11,10 +11,14 @@ app = FastAPI()
 DAY_INFO = yaml.load(open("database.yml"), Loader=yaml.FullLoader)
 
 def active_days() -> list[int]:
-    now = date(2023, 12, 24) #datetime.now() 
+    now = date(2023, 12, 24) #datetime.now()
     if now.month != 12:
         return []
     return list(range(1, now.day + 1))
+
+@app.get("/title")
+def title() -> str:
+    return DAY_INFO["title"]
 
 @app.get("/days")
 def days() -> Days:
