@@ -1,4 +1,7 @@
 from datetime import datetime, date
+import os
+
+DOMAINNAME = os.environ["DOMAINNAME"]
 
 from fastapi import FastAPI
 from fastapi.responses import PlainTextResponse
@@ -11,7 +14,10 @@ app = FastAPI()
 DAY_INFO = yaml.load(open("database.yml"), Loader=yaml.FullLoader)
 
 def active_days() -> list[int]:
-    now = date(2023, 12, 24) #datetime.now()
+    if DOMAINNAME == "localhost":
+        now = date(2023, 12, 24)
+    else:
+        now = datetime.now()
     if now.month != 12:
         return []
     return list(range(1, now.day + 1))

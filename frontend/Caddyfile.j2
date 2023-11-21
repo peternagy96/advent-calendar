@@ -1,0 +1,13 @@
+{{ domainname }}:80 {
+	root * /calendar/build
+    {% if ba_user %}
+        basicauth * {
+            {{ ba_user }} {{ ba_pw_hashed }}
+        }
+    {% endif %}
+	file_server
+}
+
+localhost:8000 {
+	reverse_proxy backend:8000
+}
