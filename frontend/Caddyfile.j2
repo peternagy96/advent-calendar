@@ -1,10 +1,10 @@
 {{ domainname }}:80 {
 	root * /calendar/build
     {% if domainname != 'localhost' %}
-        basicauth * {
+        basicauth / {
             {{ ba_user }} {{ ba_pw_hashed }}
         }
-    {% endif %}
+    {% endif +%}
 	file_server
     handle /api/* {
 		uri strip_prefix /api
