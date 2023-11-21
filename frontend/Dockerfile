@@ -11,6 +11,7 @@ WORKDIR /calendar
 
 ADD ./package.json ./
 ADD package-lock.json ./
+ADD .env ./
 RUN npm install
 COPY ./src ./src
 COPY ./public ./public

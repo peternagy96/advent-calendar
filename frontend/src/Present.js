@@ -1,9 +1,11 @@
 import React from 'react';
+import classnames from 'classnames'
 import styles from './Present.module.scss';
 
-const Present = () => {
+const Present = (props) => {
+  const day = props.day;
   return (
-    <div className={styles.present}>
+    <div id={day.id} className={classnames(styles.present, {[styles.active]: day.active, [styles.inactive]: !day.active})}>
       <div className={styles.santa}>
         <div className={styles.santa__hat}></div>
         <div className={styles.santa__eyes}></div>
@@ -20,6 +22,7 @@ const Present = () => {
         <div className={styles.present__ribbon__vertical}></div>
         <div className={styles.present__ribbon__horizontal}></div>
       </div>
+      <span className={styles.present__number}>{day.id}</span>
     </div>
   );
 }

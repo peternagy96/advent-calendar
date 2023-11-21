@@ -1,8 +1,9 @@
 localhost:80 {
 	root * /calendar/build
 	file_server
+	handle /api/* {
+		uri strip_prefix /api
+		reverse_proxy backend:8000
+	}
 }
 
-localhost:8000 {
-	reverse_proxy backend:8000
-}
