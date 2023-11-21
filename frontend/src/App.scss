@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: #22314E;
+    background-color: #183615;
 }
 #root {
     width: 100%;
@@ -12,9 +12,20 @@ body {
         flex-direction: column;
         width: 100%;
         height: 100%;
-        .container {
-            width: calc(100% - 50px);
+        .ornament {
+            position: absolute;
+            top: 0;
+            width: 100%;
             height: 100%;
+            .ornament-img {
+                width: 100%;
+                object-fit: fill;
+            }
+        }
+        .container {
+            z-index: 1;
+            width: 90%;
+            height: 90%;
             position: relative;
             display: flex;
             flex-direction: column;
@@ -24,14 +35,24 @@ body {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                flex-direction: column;
+                flex-direction: row;
+                height: 150px;
+                gap: 20px;
+                .tree {
+                    height: 100px;
+                    object-fit: scale-down;
+                }
                 .title {
                   text-align: center;
-                  color: #a6a9af;
+                  color: #eeeeee;
                   text-transform: capitalize;
-                  padding: 50px;
                   font-size: 80px;
+                  text-shadow: -1px 0 #22314E, 0 1px #22314E, 1px 0 #22314E, 0 -1px black, 0px 0px 8px rgba(238,238,238,0.9);
                 }
+            }
+            .spacer {
+                height: 20px;
+                width: 100%;
             }
         }
     }

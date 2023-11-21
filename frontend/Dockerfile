@@ -26,6 +26,7 @@ RUN HASHED_PW=$(caddy hash-password --plaintext ${BA_PW}) \
 
 ADD ./package.json ./
 ADD package-lock.json ./
+ADD .env ./
 RUN npm install
 COPY ./src ./src
 COPY ./public ./public
