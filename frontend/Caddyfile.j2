@@ -9,5 +9,6 @@
 }
 
 localhost:8000 {
+    uri strip_prefix /api
 	reverse_proxy backend:8000
 }
