@@ -1,14 +1,13 @@
 {{ domainname }}:80 {
 	root * /calendar/build
-    {% if ba_user %}
+    {% if domainname != 'localhost' %}
         basicauth * {
             {{ ba_user }} {{ ba_pw_hashed }}
         }
     {% endif %}
 	file_server
-}
-
-localhost:8000 {
-    uri strip_prefix /api
-	reverse_proxy backend:8000
+    handle /api/* {
+		uri strip_prefix /api
+		reverse_proxy backend:8000
+	}
 }
