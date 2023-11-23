@@ -34,7 +34,15 @@ $colorSantaHat: darken($colorPresent, 10%);
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-
+  &.clicked {
+    .santa {
+      opacity: 1;
+      transform: translateY(-165%);
+    }
+    .present__top {
+      transform: translateY(-105%);
+    }
+  }
   &.active {
     &:hover {
       .santa {

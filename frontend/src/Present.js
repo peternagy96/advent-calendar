@@ -4,8 +4,22 @@ import styles from './Present.module.scss';
 
 const Present = (props) => {
   const day = props.day;
+  const [clicked, setClicked] = React.useState(false);
+
   return (
-    <div id={day.id} className={classnames(styles.present, {[styles.active]: day.active, [styles.inactive]: !day.active})} onClick={props.handleClick}>
+    <div
+      id={day.id}
+      className={classnames(styles.present, {
+        [styles.active]: day.active,
+        [styles.inactive]: !day.active,
+        [styles.clicked]: clicked
+      })}
+      onClick={() => {
+        setClicked(true);
+        document.addEventListener("closed", () => {setClicked(false)});
+        props.handleClick();
+      }}
+    >
       <div className={styles.santa}>
         <div className={styles.santa__hat}></div>
         <div className={styles.santa__eyes}></div>
