@@ -5,7 +5,7 @@ import styles from './Present.module.scss';
 const Present = (props) => {
   const day = props.day;
   return (
-    <div id={day.id} className={classnames(styles.present, {[styles.active]: day.active, [styles.inactive]: !day.active})}>
+    <div id={day.id} className={classnames(styles.present, {[styles.active]: day.active, [styles.inactive]: !day.active})} onClick={props.handleClick}>
       <div className={styles.santa}>
         <div className={styles.santa__hat}></div>
         <div className={styles.santa__eyes}></div>

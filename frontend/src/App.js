@@ -23,9 +23,9 @@ const App = () => {
 
   return (
       <div className="app">
-        <div className='ornament'>
+        {/* <div className='ornament'>
           <img className={"ornament-img"} src='img/ornament.png' alt=''/>
-        </div>
+        </div> */}
         <div className="container">
             <div className="headline-container">
                 <img className={"tree"} src='img/tree.png' alt=''/>
