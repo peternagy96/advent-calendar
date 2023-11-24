@@ -5,7 +5,6 @@ import styles from './Present.module.scss';
 const Present = (props) => {
   const day = props.day;
   const [clicked, setClicked] = React.useState(false);
-
   return (
     <div
       id={day.id}
@@ -21,12 +20,15 @@ const Present = (props) => {
       }}
     >
       <div className={styles.santa}>
-        <div className={styles.santa__hat}></div>
-        <div className={styles.santa__eyes}></div>
-        <div className={styles.santa__beard}>
-        <div className={styles.santa__beard_cover}></div>
-        </div>
-        <div className={styles.santa__smile}></div>
+        <div className={styles.beard} />
+        <div className={`${styles.head} ${styles.r}`} />
+        <div className={styles.mustache} />
+        <div className={styles.mustache} />
+        <div className={`${styles.cheek} ${styles.cheek__left} ${styles.r}`} />
+        <div className={`${styles.cheek} ${styles.cheek__right} ${styles.r}`} />
+        <div className={`${styles.eye} ${styles.eye__left} ${styles.r}`} />
+        <div className={`${styles.eye} ${styles.eye__right} ${styles.r}`} />
+        <div className={`${styles.hat} ${styles.ha} ${styles.hb}`} />
       </div>
       <div className={styles.present__top}>
         <div className={styles.present__ribbon__vertical}></div>

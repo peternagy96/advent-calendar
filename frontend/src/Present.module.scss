@@ -37,7 +37,7 @@ $colorSantaHat: darken($colorPresent, 10%);
   &.clicked {
     .santa {
       opacity: 1;
-      transform: translateY(-165%);
+      transform: translateY(-90%);
     }
     .present__top {
       transform: translateY(-105%);
@@ -47,7 +47,7 @@ $colorSantaHat: darken($colorPresent, 10%);
     &:hover {
       .santa {
         opacity: 1;
-        transform: translateY(-165%);
+        transform: translateY(-90%);
         animation: pop-up 0.4s ease-in;
         transition: opacity 0s;
       }
@@ -166,112 +166,134 @@ $colorSantaHat: darken($colorPresent, 10%);
   }
 
   .santa {
+    --skin: #fca;
+    --beard: #eee;
+    --eyes: #630a;
+    --cheeks: #f001;
+    --belt: #111;
+    --belt-buckle: gold;
+    --suit: #a00;
+    div {
+      position: absolute;
+      box-sizing: border-box;
+    }
     position: absolute;
     bottom: 0;
     margin: auto;
-    width: 40%;
-    background-color: $colorSantaFace;
-    border-radius: 100%;
-    opacity: 0;
+    width: 60%;
+    aspect-ratio: 1/1;
+
+    .r {
+      border-radius: 100%;
+    }
+    
+    .hb::before,
+    .ha::after {
+      content: "";
+      display: block;
+      position: absolute;
+      box-sizing: border-box;
+    }
+
+    .head {
+      height: 50%;
+      aspect-ratio: 1/1;
+      background: var(--skin);
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+
+    .beard {
+      width: 60%;
+      aspect-ratio: 1/1.2;
+      background: var(--beard);
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      border-radius: 100% / 120% 120% 80% 80%;
+    }
+    
+    .mustache {
+      width: 15%;
+      height: 15%;
+      background: #fff;
+      border-radius: 100% 20% 100% 0;
+      top: 62%;
+      left: 50%;
+      transform-origin: top right;
+      transform: translate(-100%, 0) rotate(25deg);
+    }
+    
+    .mustache + .mustache {
+      left: 49%;
+      border-radius: 20% 100% 0 100%;
+      transform-origin: top left;
+      transform: rotate(-25deg);
+    }
+
+    .eye {
+      width: 5%;
+      height: 5%;
+      background: var(--eyes);
+      top: 40%;
+      &.eye__left {
+        left: 38%;
+      }
+      &.eye__right {
+        left: 58%;
+
+      }
+    }
+
+    .cheek {
+      width: 10%;
+      height: 6%;
+      background: var(--cheeks);
+      top: 45%;
+      &.cheek__left {
+        left: 35%;
+      }
+      &.cheek__right {
+        left: 55%;
+      }
+    }
+
+    .hat {
+      width: 45%;
+      height: 27%;
+      background: var(--suit);
+      border-radius: 100% 20% 0 0;
+      top: 2%;
+      left: 50%;
+      transform: translate(-50%, 0) rotate(1deg);
+    }
+    
+    .hat::before {
+      width: 110%;
+      height: 40%;
+      border-radius: 100% / 50%;
+      bottom: -17%;
+      left: -5%;
+      box-shadow: inset 0 4vmin white;
+      transform: rotate(-2deg);
+    }
+    
+    .hat::after {
+      width: 30%;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      background: var(--beard);
+      right: -20%;
+      top: -15%;
+    }
+
     &:after {
       content: "";
       display: block;
       padding-bottom: 100%;
     }
-  
-    &__eyes {
-      position: absolute;
-      top: 25%;
-      width: 100%;
-      height: 100%;
-  
-      &:before,
-      &:after {
-        content: "";
-        position: absolute;
-        width: 5%;
-        height: 5%;
-        background-color: $colorSantaEye;
-        border-radius: 100%;
-      }
-  
-      &:before {
-        left: 30%;
-      }
-      &:after {
-        right: 30%;
-      }
-    }
-  
-    &__beard {
-      position: absolute;
-      right: 0; bottom: 0; left: 0;
-      margin: auto;
-      width: 100%;
-      height: 50%;
-      background-color: white;
-      border-radius: 0 0 4vw 4vw;
-  
-      &:before,
-      &:after {
-        content: "";
-        position: absolute;
-        bottom: 100%;
-        width: 15%;
-        height: 25%;
-        background-color: inherit;
-      }
-  
-      &:before {
-        left: 0;
-        border-radius: 0 4vw 0 0;
-      }
-  
-      &:after {
-        right: 0;
-        border-radius: 4vw 0 0 0;
-      }
-    }
-  
-    &__beard_cover {
-      position: absolute;
-      top: 0; right: 0; left: 0;
-      margin: auto;
-      width: 70%;
-      height: 50%;
-      background-color: $colorSantaFace;
-      border-radius: 0 0 2vw 2vw;
-  
-      &:before {
-        content: "";
-        position: absolute;
-        top: 0; right: 0; left: 0;
-        margin: auto;
-        width: 50%;
-        height: 100%;
-        background-color: white;
-        border-radius: 1vw 1vw 0 0;
-      }
-    }
-  
-    &__smile {
-      position: absolute;
-      right: 0; bottom: 30%; left: 0;
-      margin: auto;
-      width: 15%;
-      height: 20%;
-      background-color: $colorSantaSmile;
-      border-radius: 4vw;
-  
-      &:before {
-        content: "";
-        position: absolute;
-        top: 0; left: 0;
-        width: 100%;
-        height: 50%;
-        background-color: white;
-      }
-    }
+
   }
 }
 
@@ -279,14 +301,14 @@ $colorSantaHat: darken($colorPresent, 10%);
 @keyframes pop-the-top {
   0%  { transform: translateY(5%); }
   30% { transform: translateY(-110%); }
-  60% { transform: translateY(-120%); }
-  80% { transform: translateY(-100%); }
+  50% { transform: translateY(-130%); }
+  70% { transform: translateY(-90%); }
   90%, 100% { transform: translateY(-105%); }
 }
 
 @keyframes pop-up {
   0%  { transform: translateY(0%); }
-  30%, 100% { transform: translateY(-165%); }
+  30%, 100% { transform: translateY(-90%); }
 }
 
 @keyframes shake {
