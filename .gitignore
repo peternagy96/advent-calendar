@@ -7,3 +7,5 @@ __pycache__/
 backend/database.yml
 
 .DS_Store
+
+frontend/public/img/[1-24].png

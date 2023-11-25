@@ -11,6 +11,7 @@ const AdventCalendar = () => {
     const [showCard, setShowCard] = React.useState(false);
     const [cardTitle, setCardTitle] = React.useState('');
     const [cardText, setCardText] = React.useState('');
+    const [cardImg, setCardImg] = React.useState('img/tree.png');
 
     React.useEffect(() => {
         const apiCall = async () => {
@@ -28,32 +29,47 @@ const AdventCalendar = () => {
         if (!day.active) {
             return;
         }
-
         const apiCall = async () => {
             try {
                 const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/days/${day.id}`);
                 setCardTitle(response.data.title);
                 setCardText(response.data.text);
+                if (response.data.img) {
+                    setCardImg(response.data.img);
+                }
+                else {
+                    setCardImg('img/tree.png');
+                }
             } catch (e) {
                 setCardTitle(`Title for day ${day.id}`);
                 setCardText(`Text for day ${day.id}`);
-                console.log(e);
+                setCardImg('img/tree.png');
             }
         }
-        apiCall();
-        setShowCard(true);
-
+        apiCall()
+            .then(() => {
+                document.body.style.overflow = "hidden";
+                setShowCard(true);
+            })
+            .catch(err => {
+                setShowCard(false)
+            });
     }
 
-    const handleCardClick = () => {
+    const handleBackgroundClick = () => {
+        document.dispatchEvent(new Event("closed"));
+        document.body.style.overflow = null;
         setShowCard(false);
     }
 
     return <div className="advent-calendar">
         {showCard &&
-        <div className="calendar-card" onClick={handleCardClick}>
-            <Card title={cardTitle} text={cardText}  />
-        </div>}
+            <Card
+                title={cardTitle}
+                text={cardText}
+                img={cardImg}
+                handleBackgroundClick={handleBackgroundClick}
+            />}
         <div className="calendar-grid">
             {days.map((day, index) => (
                 <div key={index} className="grid-item">
