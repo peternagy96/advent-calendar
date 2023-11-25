@@ -51,7 +51,7 @@ $colorSantaHat: darken($colorPresent, 10%);
   }
   &.inactive {
     &:hover {
-      animation: shake 2s ease-in-out infinite;
+      animation: shake 1.2s;
     }
   }
 
@@ -282,11 +282,11 @@ $colorSantaHat: darken($colorPresent, 10%);
 }
 
 @keyframes shake {
+  10% { transform: translateX(-0.2vw); }
+  15% { transform: translateX(0.2vw); }
+  20% { transform: translateX(-0.5vw); }
+  25% { transform: translateX(0.5vw); }
   30% { transform: translateX(-0.2vw); }
   35% { transform: translateX(0.2vw); }
-  40% { transform: translateX(-0.5vw); }
-  45% { transform: translateX(0.5vw); }
-  50% { transform: translateX(-0.2vw); }
-  55% { transform: translateX(0.2vw); }
-  60% { transform: translateX(0); }
+  40% { transform: translateX(0); }
 }
