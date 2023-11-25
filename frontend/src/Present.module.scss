@@ -54,7 +54,7 @@ $colorSantaHat: darken($colorPresent, 10%);
       animation: shake 2s ease-in-out infinite;
     }
   }
-  
+
   .present__box {
     @include presentColors;
     position: relative;
@@ -78,8 +78,8 @@ $colorSantaHat: darken($colorPresent, 10%);
   .present__ribbon__vertical {
     content: "";
     position: absolute;
-    bottom: 0; 
-    right: 0; 
+    bottom: 0;
+    right: 0;
     left: 0;
     margin: auto;
     width: $sizeRibbon;
@@ -170,23 +170,23 @@ $colorSantaHat: darken($colorPresent, 10%);
       display: block;
       padding-bottom: 100%;
     }
-  
+
     &__eyes {
       position: absolute;
-      top: 25%;
+      top: 30%;
       width: 100%;
       height: 100%;
-  
+
       &:before,
       &:after {
         content: "";
         position: absolute;
-        width: 5%;
-        height: 5%;
+        width: 7%;
+        height: 7%;
         background-color: $colorSantaEye;
         border-radius: 100%;
       }
-  
+
       &:before {
         left: 30%;
       }
@@ -194,7 +194,7 @@ $colorSantaHat: darken($colorPresent, 10%);
         right: 30%;
       }
     }
-  
+
     &__beard {
       position: absolute;
       right: 0; bottom: 0; left: 0;
@@ -202,8 +202,8 @@ $colorSantaHat: darken($colorPresent, 10%);
       width: 100%;
       height: 50%;
       background-color: white;
-      border-radius: 0 0 4vw 4vw;
-  
+      border-radius: 0 0 2.5vw 2.5vw;
+
       &:before,
       &:after {
         content: "";
@@ -213,18 +213,18 @@ $colorSantaHat: darken($colorPresent, 10%);
         height: 25%;
         background-color: inherit;
       }
-  
+
       &:before {
         left: 0;
         border-radius: 0 4vw 0 0;
       }
-  
+
       &:after {
         right: 0;
         border-radius: 4vw 0 0 0;
       }
     }
-  
+
     &__beard_cover {
       position: absolute;
       top: 0; right: 0; left: 0;
@@ -232,20 +232,20 @@ $colorSantaHat: darken($colorPresent, 10%);
       width: 70%;
       height: 50%;
       background-color: $colorSantaFace;
-      border-radius: 0 0 2vw 2vw;
-  
+      border-radius: 0 0 1.5vw 1.5vw;
+
       &:before {
         content: "";
         position: absolute;
         top: 0; right: 0; left: 0;
         margin: auto;
-        width: 50%;
+        width: 70%;
         height: 100%;
         background-color: white;
         border-radius: 1vw 1vw 0 0;
       }
     }
-  
+
     &__smile {
       position: absolute;
       right: 0; bottom: 30%; left: 0;
@@ -254,7 +254,7 @@ $colorSantaHat: darken($colorPresent, 10%);
       height: 20%;
       background-color: $colorSantaSmile;
       border-radius: 4vw;
-  
+
       &:before {
         content: "";
         position: absolute;
@@ -270,9 +270,9 @@ $colorSantaHat: darken($colorPresent, 10%);
 // Animation keyframes
 @keyframes pop-the-top {
   0%  { transform: translateY(5%); }
-  30% { transform: translateY(-110%); }
-  60% { transform: translateY(-120%); }
-  80% { transform: translateY(-100%); }
+  30% { transform: translateY(-180%); }
+  60% { transform: translateY(-105%); }
+  80% { transform: translateY(-115%); }
   90%, 100% { transform: translateY(-105%); }
 }
 
