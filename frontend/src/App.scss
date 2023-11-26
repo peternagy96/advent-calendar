@@ -83,7 +83,15 @@ body {
                   text-align: center;
                   color: #eeeeee;
                   text-transform: capitalize;
-                  font-size: 80px;
+                  font-size: clamp(60px, 80px);
+                  @media (max-width: 999px) {
+                    font-size: 30px;
+
+                    }
+                  @media (min-width: 1000px) {
+                    font-size: 80px;
+
+                    }
                 //   text-shadow: -1px 0 #22314E, 0 1px #22314E, 1px 0 #22314E, 0 -1px black, 0px 0px 8px rgba(238,238,238,0.9);
                 }
             }

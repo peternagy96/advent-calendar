@@ -14,7 +14,7 @@ app = FastAPI()
 DAY_INFO = yaml.load(open("database.yml"), Loader=yaml.FullLoader)
 
 def active_days() -> list[int]:
-    if DOMAINNAME == "localhost":
+    if DOMAINNAME == "localhost:80":
         now = date(2023, 12, 24)
     else:
         now = datetime.now()
